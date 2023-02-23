@@ -33,6 +33,9 @@ function operate(num1, operator, num2) {
     }
 }
 
+//Bug checking functions
+
+
 // Changes the display based on the buttons clicked
 function updateDisplay(input) {
     if (input == 'clear') {
@@ -44,7 +47,6 @@ function updateDisplay(input) {
         firstOperation = 1;
     }
     else if (input == 'backspace') {
-        
         //For when + - * or / is deleted
         for (let i = 0; i < displayOutput.length; i++) {
             if (displayOutput[i] == '+' || displayOutput[i] == '-' || displayOutput[i] == '*' || displayOutput[i] == '/') {
@@ -52,16 +54,13 @@ function updateDisplay(input) {
                 break;
             }
         }
-        if (indexOfOperation == displayOutput.length - 1) {
-            firstOperation = 1;
-        }
-
+        
         displayOutput = displayOutput.slice(0, displayOutput.length - 1);
     }
     else {
         displayOutput += input;
     }
-    
+
     if (displayOutput.length > 20) {
         displayOutput = displayOutput.slice(1);
     }
@@ -69,7 +68,7 @@ function updateDisplay(input) {
     if (input == '+' || input == '-' || input == '*' || input == '/') {
         if (firstOperation) {
             firstOperation = '';
-            
+
         }
         else {
             for (let i = 0; i < displayOutput.length; i++) {
