@@ -10,10 +10,14 @@ body {
     justify-content: center;
     align-items: center;
     align-content: center;
+    height: 100vh;
 }
 
-h1 {
 
+button {
+    flex: 1;
+    background-color: white;
+    border-radius: 10px;
 }
 
 .calculator-container {
@@ -21,40 +25,81 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
+    width: 30%;
+    aspect-ratio: 9/13;
+
+    background-color: rgb(61, 58, 58);
+    border-style: none;
+    border-radius: 10px;
 }
 
 .calc-display {
     display:flex;
-    text-align: right;
+    justify-content: end;
+    align-items: end;
+
+    height: 28%;
+    width: 90%;
+
+    background-color: aliceblue;
+    border-radius: 10px;
 }
 
 .calc-row1 {
     display: flex;
+    gap: 5px;
+
+    height: 16%;
+    width: 90%;
 }
 
 .calc-row2 {
     display: flex;
+    gap: 5px;
+
+    height: 16%;
+    width: 90%;
 }
 
 .calc-row3 {
     display: flex;
+    gap: 5px;
+
+    height: 34%;
+    width: 90%;
+    gap: 5px;
 }
 
 .row3-left {
     display: flex;
     flex-direction: column;
+    gap: 5px;
+
+    height: 100%;
+    width: 80%;
 } 
 
 .row3-left-top {
     display: flex;
+    height: 50%;
+    width: 100%;
+    gap: 5px;
 }
 
 .row3-left-bottom {
     display: flex;
+
+    height: 50%;
+    width: 100%;
+    gap: 5px;
 }
 
 .row3-right {
     display: flex;
+    gap: 5px;
+
+    height: 100%;
+    width: 20%;
 }
 
