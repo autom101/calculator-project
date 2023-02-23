@@ -1,16 +1,19 @@
 * {
     margin: 0;
     padding: 0;
+
+    font-size: 48px;
+    font-weight: bold;
 }
 
 body {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
     justify-content: center;
     align-items: center;
     align-content: center;
     height: 100vh;
+
+    background-color: slateblue;
 }
 
 
@@ -31,42 +34,51 @@ button {
 
     background-color: rgb(61, 58, 58);
     border-style: none;
-    border-radius: 10px;
+    border-radius: 30px;
+    flex-shrink: 0;
 }
 
-.calc-display {
+.display {
     display:flex;
     justify-content: end;
     align-items: end;
+    flex-shrink: 0;
 
-    height: 28%;
+    height: 27%;
     width: 90%;
+    margin-bottom: 20px;
 
     background-color: aliceblue;
     border-radius: 10px;
+
+    color: black;
+    font: 72px;
 }
 
 .calc-row1 {
     display: flex;
-    gap: 5px;
+    gap: 10px;
+    flex-shrink: 0;
 
-    height: 16%;
+    height: 15%;
     width: 90%;
 }
 
 .calc-row2 {
     display: flex;
-    gap: 5px;
+    gap: 10px;
+    flex-shrink: 0;
 
-    height: 16%;
+    height: 15%;
     width: 90%;
 }
 
 .calc-row3 {
     display: flex;
-    gap: 5px;
+    gap: 10px;
+    flex-shrink: 0;
 
-    height: 34%;
+    height: 32%;
     width: 90%;
     gap: 5px;
 }
@@ -74,17 +86,17 @@ button {
 .row3-left {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 
     height: 100%;
-    width: 80%;
+    width: 81%;
 } 
 
 .row3-left-top {
     display: flex;
     height: 50%;
     width: 100%;
-    gap: 5px;
+    gap: 10px;
 }
 
 .row3-left-bottom {
@@ -92,14 +104,15 @@ button {
 
     height: 50%;
     width: 100%;
-    gap: 5px;
+    gap: 10px;
 }
 
 .row3-right {
     display: flex;
-    gap: 5px;
+    gap: 10px;
+    padding-left: 5px;
 
     height: 100%;
-    width: 20%;
+    width: 19%;
 }
 
