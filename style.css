@@ -29,7 +29,7 @@ button {
     justify-content: center;
     align-items: center;
     gap: 5px;
-    width: 30%;
+    width: 35%;
     aspect-ratio: 9/13;
 
     background-color: rgb(61, 58, 58);
@@ -43,6 +43,7 @@ button {
     justify-content: end;
     align-items: end;
     flex-shrink: 0;
+    flex-wrap: wrap;
 
     height: 27%;
     width: 90%;
@@ -52,7 +53,7 @@ button {
     border-radius: 10px;
 
     color: black;
-    font: 72px;
+    font: 96px;
 }
 
 .calc-row1 {
