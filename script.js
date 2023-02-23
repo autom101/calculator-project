@@ -44,6 +44,18 @@ function updateDisplay(input) {
         firstOperation = 1;
     }
     else if (input == 'backspace') {
+        
+        //For when + - * or / is deleted
+        for (let i = 0; i < displayOutput.length; i++) {
+            if (displayOutput[i] == '+' || displayOutput[i] == '-' || displayOutput[i] == '*' || displayOutput[i] == '/') {
+                indexOfOperation = i;
+                break;
+            }
+        }
+        if (indexOfOperation == displayOutput.length - 1) {
+            firstOperation = 1;
+        }
+
         displayOutput = displayOutput.slice(0, displayOutput.length - 1);
     }
     else {
@@ -57,6 +69,7 @@ function updateDisplay(input) {
     if (input == '+' || input == '-' || input == '*' || input == '/') {
         if (firstOperation) {
             firstOperation = '';
+            
         }
         else {
             for (let i = 0; i < displayOutput.length; i++) {
@@ -66,7 +79,8 @@ function updateDisplay(input) {
                 }
             }
             firstNumber = displayOutput.slice(0, indexOfOperation);
-            secondNumber = displayOutput.slice(indexOfOperation + 1, displayOutput.length);
+            secondNumber = displayOutput.slice(indexOfOperation + 1);
+
             answer = operate(firstNumber, displayOutput[indexOfOperation], secondNumber);
             displayOutput = answer + input;
 
@@ -74,7 +88,6 @@ function updateDisplay(input) {
             secondNumber = '';
             answer = '';
             indexOfOperation = '';
-            firstOperation = 1;
         }
     }
 
