@@ -13,8 +13,7 @@ const divide = (num1, num2) => {
     return num1 / num2;
 }
 
-// Operate function
-
+// calls on basic math functions
 function operate(num1, operator, num2) {
     switch (operator) {
         case '+':
