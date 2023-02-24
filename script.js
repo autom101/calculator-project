@@ -7,10 +7,7 @@ const subtract = (num1, num2) => parseFloat(num1) - parseFloat(num2);
 const multiply = (num1, num2) => parseFloat(num1) * parseFloat(num2);
 
 const divide = (num1, num2) => {
-    if (num2 === 0) {
-        return "Error. Cannot divide by zero!";
-    }
-    return parseFloat(num1) / parseFloat(num2);
+    return (parseFloat(num1) / parseFloat(num2)).toFixed(5);
 }
 
 // calls on basic math functions
@@ -34,27 +31,28 @@ function operate(num1, operator, num2) {
 }
 
 //Bug checking functions
+function clearAll() {
+    displayOutput = '';
+    firstNumber = 0;
+    secondNumber = 0;
+    answer = 0;
+    indexOfOperation = '';
+    firstOperation = 1;
+}
 
+function clearNumbers() {
+    firstNumber = '';
+    secondNumber = '';
+    answer = '';
+    indexOfOperation = '';
+}
 
 // Changes the display based on the buttons clicked
 function updateDisplay(input) {
     if (input == 'clear') {
-        displayOutput = '';
-        firstNumber = 0;
-        secondNumber = 0;
-        answer = 0;
-        indexOfOperation = '';
-        firstOperation = 1;
+        clearAll();
     }
     else if (input == 'backspace') {
-        //For when + - * or / is deleted
-        for (let i = 0; i < displayOutput.length; i++) {
-            if (displayOutput[i] == '+' || displayOutput[i] == '-' || displayOutput[i] == '*' || displayOutput[i] == '/') {
-                indexOfOperation = i;
-                break;
-            }
-        }
-        
         displayOutput = displayOutput.slice(0, displayOutput.length - 1);
     }
     else {
@@ -68,7 +66,6 @@ function updateDisplay(input) {
     if (input == '+' || input == '-' || input == '*' || input == '/') {
         if (firstOperation) {
             firstOperation = '';
-
         }
         else {
             for (let i = 0; i < displayOutput.length; i++) {
@@ -79,14 +76,18 @@ function updateDisplay(input) {
             }
             firstNumber = displayOutput.slice(0, indexOfOperation);
             secondNumber = displayOutput.slice(indexOfOperation + 1);
-
+            
+            
             answer = operate(firstNumber, displayOutput[indexOfOperation], secondNumber);
-            displayOutput = answer + input;
+            if (answer == NaN || answer == null || answer == undefined) {
+                clearAll();
+            }
+            else {
+                displayOutput = answer + input;
+            }
+                      
 
-            firstNumber = '';
-            secondNumber = '';
-            answer = '';
-            indexOfOperation = '';
+            clearNumbers();
         }
     }
 
@@ -105,18 +106,13 @@ function updateDisplay(input) {
             answer = operate(firstNumber, displayOutput[indexOfOperation], secondNumber);
             displayOutput = answer;
 
-            firstNumber = '';
-            secondNumber = '';
-            answer = '';
-            indexOfOperation = '';
-            firstOperation = 1;
+            clearNumbers();
         }
         else {
             displayOutput = displayOutput.slice(0, displayOutput.length - 1);
         }
 
     }
-
     display.textContent = displayOutput;
 }
 
